@@ -1,10 +1,7 @@
 import {config} from "dotenv";
+import { App } from "./utils/app.utils";
+
 config();
-import express from "express";
 
+App.launchAPI();
 
-const app = express();
-
-app.listen(process.env.PORT,function (){
-    console.log(`Listening on port ${process.env.PORT}`);
-});

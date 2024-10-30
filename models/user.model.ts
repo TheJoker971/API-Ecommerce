@@ -1,19 +1,25 @@
 import { Schema } from "mongoose";
-import { Mail } from "../utils/mail.utils";
+import { Mail } from "../utils";
 
 export interface IUser {
     mail:Mail;
     password:string;
+    active : boolean;
     admin:boolean;
 }
 
 export const schemaUser = new Schema<IUser>({
     mail : {
         type : String,
-        required : true
+        required : true,
+        unique : true
     },
     password : {
         type : String,
+        required : true
+    },
+    active : {
+        type : Boolean,
         required : true
     },
     admin : {
